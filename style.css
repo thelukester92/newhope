@@ -339,6 +339,43 @@ footer h3
 	height:			48px;
 }
 
+.search
+{
+	transform:			scaleX(0);
+	transform-origin:	left top;
+	position:			absolute;
+	overflow:			hidden;
+	top:				75px;
+	left:				250px;
+	right:				10px;
+	padding:			5px;
+	background:			#0B3F0B;
+	transition:			transform .5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.search form
+{
+	top: 3px;
+	left: 4px;
+	right: 4px;
+	position: absolute;
+}
+
+.search input
+{
+	background: 0;
+	border: 0;
+	width: 100%;
+	padding: 4px 0 4px 26px;
+	color: #fff;
+	outline: none;
+}
+
+#toggle-search:checked ~ .search
+{
+	transform:		scaleX(1);
+}
+
 /* MARK: Desktop styles */
 
 .toggle-menu

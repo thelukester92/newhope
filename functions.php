@@ -35,8 +35,19 @@ class NewHope
 				<aside class="sitemap">
 					' . wp_page_menu(array("echo" => false, "exclude" => get_option("page_on_front"))) . '
 				</aside>
+			</li>
+			<li>
+				<input id="toggle-search" type="checkbox" class="toggle-box" />
+				<label for="toggle-search" class="toggle-label">
+					<span class="dashicons dashicons-search"></span>
+				</label>
+				<aside class="search">
+					<span class="dashicons dashicons-search"></span>
+					<form action="" method="get">
+						<input type="text" name="s" />
+					</form>
+				</aside>
 			</li>';
-			$items .= '<li><a href="/search/"><span class="dashicons dashicons-search"></span></a></li>';
 		}
 		return $items;
 	}
