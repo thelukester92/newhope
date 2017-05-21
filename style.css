@@ -1,0 +1,422 @@
+/*
+ * Theme Name:	New Hope
+ * Author:		Luke Godfrey
+ * Version:		0.1.0
+ */
+
+/* Color Scheme:
+ * Logo Brown = #533115
+ * Logo Green = #336633
+ * Lite Green = #74A974
+ * Dark Green = #0B3F0B
+ */
+
+/* MARK: Reusable */
+
+.toggle-label
+{
+	cursor:		pointer;
+	color:		#fff;
+}
+
+.toggle-label .close-icon
+{
+	position:	absolute;
+	overflow:	hidden;
+}
+
+.toggle-label .close-icon::before
+{
+	transition:		margin-left .5s ease;
+	margin-left:	100%;
+}
+
+.toggle-label .open-icon
+{
+	overflow:	hidden;
+}
+
+.toggle-label .open-icon::before
+{
+	transition:		margin-left .5s ease;
+}
+
+.toggle-box
+{
+	display:		none;
+}
+
+.toggle-box:checked ~ .toggle-label .close-icon::before
+{
+	margin-left:	0;
+}
+
+.toggle-box:checked ~ .toggle-label .open-icon::before
+{
+	margin-left:	-200%;
+}
+
+/* MARK: Structure */
+
+*
+{
+	box-sizing:		border-box;
+}
+
+body
+{
+	font-family:	Arial, Helvetica, sans-serif;
+	padding:		0;
+	margin:			0;
+	position:		relative;
+}
+
+a
+{
+	color:				#74A974;
+	text-decoration:	none;
+	transition:			color .25s ease;
+}
+
+a:hover
+{
+	color:				#533115;
+}
+
+.utility-links
+{
+	position:	absolute;
+	width:		100%;
+	padding:	5px 0;
+	text-align:	right;
+	font-size:	0.8em;
+	color:		#fff;
+	z-index:	1;
+}
+
+.utility-links nav
+{
+	color: #fff;
+}
+
+.utility-links ul
+{
+	list-style:	none;
+	margin:		0;
+	padding:	0;
+}
+
+.utility-links li
+{
+	list-style:		none;
+	display:		inline;
+	padding:		0 5px;
+	border-left:	1px solid rgba(255, 255, 255, 0.5);
+}
+
+.utility-links li:first-child
+{
+	border-left:	none;
+}
+
+header
+{
+	background:	rgba(51, 102, 51, 0.85); /* #336633 */
+	width:		100%;
+	padding:	10px;
+	display:	flex;
+}
+
+header a, .utility-links a
+{
+	color:	#fff;
+}
+
+header a:hover, .utility-links a:hover
+{
+	color:	#74A974;
+}
+
+header.has-featured-image
+{
+	position:	absolute;
+}
+
+header img.custom-logo
+{
+	display:	block;
+}
+
+.menu-right
+{
+	width:		100%;
+	padding:	0 10px;
+	margin:		0 0 0 50px;
+	align-self: flex-end;
+}
+
+.menu-right nav
+{
+	color:		#fff;
+	width:		100%;
+}
+
+.menu-right ul
+{
+	margin:				0 -10px;
+	padding:			0;
+	list-style:			none;
+	display:			flex;
+	justify-content:	space-between;
+}
+
+.menu-right li
+{
+	display:	inline-block;
+	margin:		0;
+	padding:	0;
+	list-style:	none;
+}
+
+.menu-right a, .menu-right label.toggle-label
+{
+	display:	inline;
+	padding:	0 10px;
+}
+
+.menu-right span.dashicons
+{
+	transition:			none;
+	font-size:			1.1em;
+}
+.menu-right label.toggle-label
+{
+	transition:			color .25s ease;
+}
+
+.menu-right label.toggle-label:hover
+{
+	color:				#74A974;
+}
+
+main
+{
+	width:		100%;
+	padding:	10px;
+}
+
+footer
+{
+	background:			#336633;
+	color:				#fff;
+	width:				100%;
+	padding:			10px;
+	display:			flex;
+	justify-content:	space-between;
+}
+
+footer h3
+{
+	font-size:			1.2em;
+	font-weight:		bold;
+	margin:				0 0 4px 0;
+	padding:			0;
+}
+
+.copyright
+{
+	background:	#0B3F0B;
+	color:		#fff;
+	width:		100%;
+	padding:	10px;
+	font-size:	0.9em;
+}
+
+.featured-image
+{
+	width:					calc(100% + 20px);
+	height:					300px;
+	margin:					-10px 0 0 -10px;
+	background-repeat:		no-repeat !important;
+	background-size:		100% !important;
+	top:					0;
+	z-index:				-1;
+}
+
+.featured-image .title
+{
+	padding-top:	110px;
+	height:			100%;
+	display:		flex;
+	align-items:	center;
+}
+
+.featured-image .title h1
+{
+	width:			100%;
+	margin:			0;
+	padding:		0;
+	text-align:		center;
+	font-family:	"Cormorant", serif;
+	font-size:		3em;
+	color:			#fff;
+	text-shadow:	0 0 4px #000;
+}
+
+#toggle-sitemap:checked ~ .sitemap
+{
+	transform:			scaleY(1);
+}
+
+.sitemap
+{
+	transform:			scaleY(0);
+	transform-origin:	left top;
+	position:			absolute;
+	overflow:			hidden;
+	top:				110px;
+	left:				0;
+	width:				100%;
+	background:			rgba(83, 49, 21, 0.9); /* #533115; */
+	transition:			transform .5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.sitemap div
+{
+	padding:	10px;
+}
+
+.sitemap ul
+{
+	flex-flow:	column wrap;
+	margin:		0;
+}
+
+.sitemap div > ul > li
+{
+	width:		30%;
+}
+
+.sitemap > div > ul
+{
+	display:	flex;
+	height:		350px;
+}
+
+.sitemap > div > ul > li > ul
+{
+	margin-top:	2px;
+}
+
+.sitemap ul ul ul
+{
+	margin-left:	20px;
+}
+
+.sitemap a
+{
+	padding:		0;
+}
+
+.sitemap > div > ul > li
+{
+	margin-bottom:	10px;
+}
+
+.sitemap > div > ul > li > a
+{
+	font-weight:		bold;
+	display:			block;
+	width:				100%;
+	color:				#74A974;
+	text-transform:		uppercase;
+	font-size:			0.9em;
+}
+
+.sitemap > div > ul > li > a::first-letter
+{
+	font-size:			1.1em;
+}
+
+.sitemap > div > ul > li > a:hover
+{
+	color:				#fff;
+}
+
+.toggle-menu span.dashicons
+{
+	font-size:		48px;
+	width:			48px;
+	height:			48px;
+}
+
+/* MARK: Desktop styles */
+
+.toggle-menu
+{
+	display:		none;
+	line-height:	48px;
+	font-size:		2em;
+}
+
+/* MARK: Mobile styles */
+
+@media only screen and (max-width: 768px)
+{
+	.utility-links
+	{
+		display: none;
+	}
+	
+	header
+	{
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+	.toggle-menu
+	{
+		display:	block;
+	}
+	
+	.menu-right
+	{
+		transform:			scaleY(0);
+		transform-origin:	top left;
+		
+		position:			absolute;
+		left:				0;
+		top:				110px;
+		padding:			0;
+		margin:				0;
+		transition:			transform .5s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+	
+	#toggle-menu[type=checkbox]:checked ~ .menu-right
+	{
+		transform:			scaleY(1);
+	}
+	
+	.menu-right nav > ul
+	{
+		flex-direction:	column;
+		margin:			0;
+		background:		rgba(83, 49, 21, 0.9); /* #533115; */
+	}
+	
+	.menu-right li
+	{
+		padding:	10px;
+		min-width:	200px;
+	}
+	
+	.sitemap
+	{
+		top:		100%;
+	}
+	
+	.sitemap li
+	{
+		padding:	0;
+	}
+}
